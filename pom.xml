@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2012 Jason Gedge <www.gedge.ca>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	                    http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ca.gedge</groupId>
+	<artifactId>radix-tree</artifactId>
+	<version>0.1-SNAPSHOT</version>
+
+	<!-- Project info -->
+	
+	<name>Radix Tree</name>
+	<description>An implementation of the radix tree data structure.</description>
+	<url>http://thegedge.github.com/radixtree</url>
+	<inceptionYear>2012</inceptionYear>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<distribution>manual</distribution>
+			<url>http://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<id>gedge</id>
+			<name>Jason Gedge</name>
+			<email>gedge@ualberta.ca</email>
+			<url>http://github.com/thegedge</url>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-3.5</timezone>
+		</developer>
+	</developers>
+	
+	<!-- Project Management -->
+	
+	<issueManagement>
+		<url>https://github.com/thegedge/opgraph/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<scm>
+		<url>https://github.com/thegedge/opgraph</url>
+		<connection>scm:git:git://github.com/thegedge/opgraph.git</connection>
+		<developerConnection>scm:git:git@github.com:thegedge/opgraph.git</developerConnection>
+	</scm>
+	
+	<!-- Dependencies -->
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<!-- Build configuration -->
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12.1</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
