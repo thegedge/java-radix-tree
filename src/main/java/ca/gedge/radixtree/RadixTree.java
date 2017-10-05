@@ -41,7 +41,9 @@ import java.util.TreeSet;
  * 
  * @param <V>  the type of values stored in the tree
  */
-public class RadixTree<V> implements Map<String, V>, Serializable {
+public class RadixTree<V extends Serializable> implements Map<String, V>, Serializable {
+	public static final String KEY_CANNOT_BE_NULL = "key cannot be null";
+	public static final String KEYS_MUST_BE_STRING_INSTANCES = "keys must be String instances";
 	/** The root node in this tree */
 	RadixTreeNode<V> root;
 	
@@ -106,10 +108,10 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 	@Override
 	public boolean containsKey(final Object keyToCheck) {
 		if(keyToCheck == null)
-			throw new NullPointerException("key cannot be null");
+			throw new NullPointerException(KEY_CANNOT_BE_NULL);
 		
 		if(!(keyToCheck instanceof String))
-			throw new ClassCastException("keys must be String instances");
+			throw new ClassCastException(KEYS_MUST_BE_STRING_INSTANCES);
 		
 		RadixTreeVisitor<V, Boolean> visitor = new RadixTreeVisitor<V, Boolean>() {
 			boolean found = false;
@@ -152,10 +154,10 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 	@Override
 	public V get(final Object keyToCheck) {
 		if(keyToCheck == null)
-			throw new NullPointerException("key cannot be null");
+			throw new NullPointerException(KEY_CANNOT_BE_NULL);
 		
 		if(!(keyToCheck instanceof String))
-			throw new ClassCastException("keys must be String instances");
+			throw new ClassCastException(KEYS_MUST_BE_STRING_INSTANCES);
 
 		RadixTreeVisitor<V, V> visitor = new RadixTreeVisitor<V, V>() {
 			V result = null;
@@ -364,7 +366,7 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 	@Override
 	public V put(String key, V value) {
 		if(key == null)
-			throw new NullPointerException("key cannot be null");
+			throw new NullPointerException(KEY_CANNOT_BE_NULL);
 		
 		return put(key, value, root);
 	}
@@ -446,10 +448,10 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 	@Override
 	public V remove(Object key) {
 		if(key == null)
-			throw new NullPointerException("key cannot be null");
+			throw new NullPointerException(KEY_CANNOT_BE_NULL);
 		
 		if(!(key instanceof String))
-			throw new ClassCastException("keys must be String instances");
+			throw new ClassCastException(KEYS_MUST_BE_STRING_INSTANCES);
 
 		// Special case for removing empty string (root node)
 		final String sKey = (String)key;
@@ -459,7 +461,7 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 			return value;
 		}
 		
-		return remove(sKey.toString(), root);
+		return remove(sKey, root);
 	}
 	
 	/**
@@ -480,7 +482,7 @@ public class RadixTree<V> implements Map<String, V>, Serializable {
 			final int largestPrefix = RadixTreeUtil.largestPrefixLength(key, child.getPrefix());
 			if(largestPrefix == child.getPrefix().length() && largestPrefix == key.length()) {
 				// Found our match, remove the value from this node
-				if(child.getChildren().size() == 0) {
+				if(child.getChildren().isEmpty()) {
 					// Leaf node, simply remove from parent
 					ret = child.getValue();
 					iter.remove();
