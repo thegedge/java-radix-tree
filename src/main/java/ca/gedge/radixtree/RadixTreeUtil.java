@@ -29,6 +29,7 @@ import java.io.Serializable;
 public class RadixTreeUtil {
 	private RadixTreeUtil() {
 	}
+	
 	/**
 	 * Finds the length of the largest prefix for two character sequences.
 	 * 

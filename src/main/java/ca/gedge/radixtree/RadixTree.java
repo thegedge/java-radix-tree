@@ -44,6 +44,7 @@ import java.util.TreeSet;
 public class RadixTree<V extends Serializable> implements Map<String, V>, Serializable {
 	public static final String KEY_CANNOT_BE_NULL = "key cannot be null";
 	public static final String KEYS_MUST_BE_STRING_INSTANCES = "keys must be String instances";
+	
 	/** The root node in this tree */
 	RadixTreeNode<V> root;
 	
