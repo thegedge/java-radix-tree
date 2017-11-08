@@ -22,12 +22,8 @@
 package ca.gedge.radixtree;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -35,7 +31,7 @@ import java.util.TreeSet;
  * 
  * @param <V> 
  */
-class RadixTreeNode<V> implements Iterable<RadixTreeNode<V>>, Comparable<RadixTreeNode<V>>, Serializable {
+class RadixTreeNode<V extends Serializable> implements Iterable<RadixTreeNode<V>>, Comparable<RadixTreeNode<V>>, Serializable {
 	/** The prefix at this node */
 	private String prefix;
 	
@@ -166,6 +162,7 @@ class RadixTreeNode<V> implements Iterable<RadixTreeNode<V>>, Comparable<RadixTr
 
 				@Override
 				public void remove() {
+					// Unimplemented
 				}
 			};
 		}

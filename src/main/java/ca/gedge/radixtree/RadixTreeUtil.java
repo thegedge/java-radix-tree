@@ -21,10 +21,15 @@
  */
 package ca.gedge.radixtree;
 
+import java.io.Serializable;
+
 /**
  * Radix tree utility functions.
  */
 public class RadixTreeUtil {
+	private RadixTreeUtil() {
+	}
+	
 	/**
 	 * Finds the length of the largest prefix for two character sequences.
 	 * 
@@ -52,7 +57,7 @@ public class RadixTreeUtil {
 	 * 
 	 * @param tree  the tree
 	 */
-	public static <V> void dumpTree(RadixTree<V> tree) {
+	public static <V extends Serializable> void dumpTree(RadixTree<V> tree) {
 		dumpTree(tree.root, "");
 	}
 	
@@ -62,7 +67,7 @@ public class RadixTreeUtil {
 	 * @param node  the subtree
 	 * @param outputPrefix  prefix to be printed to output
 	 */
-	static <V> void dumpTree(RadixTreeNode<V> node, String outputPrefix) {
+	static <V extends Serializable> void dumpTree(RadixTreeNode<V> node, String outputPrefix) {
 		if(node.hasValue())
 			System.out.format("%s{%s : %s}%n", outputPrefix, node.getPrefix(), node.getValue());
 		else
