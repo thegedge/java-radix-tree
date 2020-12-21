@@ -1,3 +1,9 @@
+> **:warning: This repository is no longer actively maintained**.
+>
+> It should be working, for the most part, but is likely not free of bugs.
+
+---
+
 # Radix Tree
 
 An implementation of the [Radix Tree](en.wikipedia.org/wiki/Radix_tree) data
